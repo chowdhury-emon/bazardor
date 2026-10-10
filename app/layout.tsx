@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Baloo_Da_2, Noto_Sans_Bengali } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
-import Navbar from "@/components/Header/Navbar";
 import { Suspense } from "react";
-import MarqueeLinks from "@/components/Header/MarqueeLinks";
+import MarqueeLinks from "@/components/MarqueeLinks/MarqueeLinks";
+import Navbar from "@/components/Navbar/Navbar";
 
 const balooDa = Baloo_Da_2({
   variable: "--font-baloo-da",
