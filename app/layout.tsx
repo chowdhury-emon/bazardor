@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Baloo_Da_2, Noto_Sans_Bengali } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 
 const notoSansBengali = Noto_Sans_Bengali({
   variable: "--font-noto-sans-bengali",
@@ -21,10 +22,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${balooDa.variable} font-baloo h-full antialiased`}
+      data-theme = "light"
+      className={`${balooDa.className} light h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <header>
+        <header className="sticky top-0 z-50">
+          <Header />
         </header>
         <main>
           {children}
