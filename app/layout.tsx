@@ -3,6 +3,8 @@ import { Baloo_Da_2, Noto_Sans_Bengali } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import Navbar from "@/components/Header/Navbar";
+import { Suspense } from "react";
+import MarqueeLinks from "@/components/Header/MarqueeLinks";
 
 const balooDa = Baloo_Da_2({
   variable: "--font-baloo-da",
@@ -18,13 +20,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      data-theme = "light"
+      data-theme="light"
       className={`${balooDa.className} light h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <header className="sticky top-0 z-50">
           <Header />
-          <Navbar />
+          <Suspense fallback={"Loading..."}>
+            <Navbar />
+          </Suspense>
+          <MarqueeLinks />
         </header>
         <main className="container mx-auto">
           {children}
