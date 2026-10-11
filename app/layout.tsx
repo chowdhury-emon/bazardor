@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Baloo_Da_2 } from "next/font/google";
+import { Suspense } from "react";
 import Header from "@/components/Header/Header";
 import MarqueeLinks from "@/components/MarqueeLinks/MarqueeLinks";
 import Navbar from "@/components/Navbar/Navbar";
-import { Suspense } from "react";
 import Footer from "@/components/Footer/Footer";
+import { Spinner, Toast } from "@heroui/react";
 
 const balooDa = Baloo_Da_2({
   variable: "--font-baloo-da",
@@ -27,17 +28,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <header className="sticky top-0 z-50 bg-surface">
           <Header />
-          <Suspense fallback={"Loading..."}>
+          <Suspense fallback={<div className="container mx-auto"> <Spinner /> </div>}>
             <Navbar />
+            <MarqueeLinks />
           </Suspense>
-          <MarqueeLinks />
         </header>
+
         <main className="container mx-auto min-h-screen bg-background">
           {children}
         </main>
+
         <footer>
           <Footer />
         </footer>
+        <Toast.Provider placement="top" />
+
       </body>
     </html>
   );

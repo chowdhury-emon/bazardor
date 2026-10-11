@@ -1,9 +1,16 @@
+import MarqueeProductLink from "@/components/MarqueeLinks/MarqueeProductLink";
+import { getProducts } from "@/lib/api";
 import Marquee from "react-fast-marquee";
 
-export default function MarqueeLinks() {
+export default async function MarqueeLinks() {
+  const products = await getProducts();
+  console.log(products)
+
   return (
-    <Marquee className="h-fit overflow-hidden border-b border-border p-2" pauseOnHover>
-      I can be a React component, multiple React components, or just some text.
+    <Marquee className="h-fit overflow-hidden border-b border-border" pauseOnHover pauseOnClick>
+      {
+        products.map((product, i) => <MarqueeProductLink key={i} product={product} />)
+      }
     </Marquee>
   )
 }

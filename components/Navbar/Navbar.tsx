@@ -2,8 +2,8 @@ import Navlink from "@/components/Navbar/Navlink";
 import { getCategories } from "@/lib/api"
 
 export default async function Navbar() {
-    const categories = await getCategories();
-    console.log(categories)
+   const categories = await getCategories();
+   console.log(categories);
     return (
         <div className="border-b border-t border-border">
             <nav className="container mx-auto flex my-2 flex-nowrap overflow-x-auto">
