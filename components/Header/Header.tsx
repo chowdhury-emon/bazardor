@@ -11,7 +11,7 @@ export default function Header() {
     }, []);
 
     return (
-        <div className="container mx-auto flex justify-between items-center py-2">
+        <div className="container mx-auto flex justify-between items-center p-2">
             <div className="flex gap-4">
                 <Image className="w-14 p-2 aspect-square rounded-2xl bg-accent object-contain"
                     src={'/cart-logo.png'} width={500} height={500} alt="Cart logo"></Image>

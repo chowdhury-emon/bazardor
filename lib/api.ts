@@ -1,10 +1,10 @@
-import { ProductCategory } from "@/types/Product.type";
+import { Category } from "@/types/Category.type";
 
 const API_URL: string = "https://openapi.programming-hero.com/api/bazardor";
 // "https://api.api-store.workers.dev/api/bazardor";
 // "https://api.abcz.workers.dev/api/bazardor";
 
-export const getCategories = async (): Promise<ProductCategory[]> => {
+export const getCategories = async (): Promise<Category[]> => {
     const res = await fetch(`${API_URL}/categories`);
     if (!res.ok) {
         throw new Error("Categories fetch failed!")
