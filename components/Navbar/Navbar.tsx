@@ -6,7 +6,7 @@ export default async function Navbar() {
    console.log(categories);
     return (
         <div className="border-b border-t border-border">
-            <nav className="container mx-auto flex my-2 flex-nowrap overflow-x-auto">
+            <nav className="container mx-auto flex p-2 flex-nowrap overflow-x-auto">
                 {categories.map((category, i) => (
                     <Navlink key={i} category={category}></Navlink>
                 ))}

@@ -34,7 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </Suspense>
         </header>
 
-        <main className="container mx-auto min-h-screen bg-background">
+        <main className="container mx-auto min-h-screen bg-background p-2">
           {children}
         </main>
 
