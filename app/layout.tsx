@@ -34,7 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </Suspense>
         </header>
 
-        <main className="container mx-auto min-h-screen bg-background p-4">
+        <main className="container mx-auto grid min-h-[80vh] bg-background p-4">
           {children}
         </main>
 
