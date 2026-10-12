@@ -30,7 +30,7 @@ export const getProducts = async (): Promise<Product[]> => {
     // https://api.api-store.workers.dev/api/bazardor/products
     const res = await fetch(`${API_URL}/products`)
     if (!res.ok) {
-        throw new Error("Product fetch failed");
+        throw new Error("Products fetch failed");
     } else {
         return res.json();
     }
@@ -40,7 +40,17 @@ export const getProductsByCatagory = async (slug: string): Promise<Product[]> =>
     // https://api.api-store.workers.dev/api/bazardor/products?category=chal
     const res = await fetch(`${API_URL}/products?category=${slug}`);
     if (!res.ok) {
-        throw new Error("Categorized product fetch failed")
+        throw new Error("Categorized products fetch failed")
+    } else {
+        return res.json();
+    }
+}
+
+export const getProductById = async (id: string): Promise<Product> => {
+    // https://api.api-store.workers.dev/api/bazardor/products/1
+    const res = await fetch(`${API_URL}/products/${id}`);
+    if (!res.ok) {
+        throw new Error("Product fetch failed")
     } else {
         return res.json();
     }

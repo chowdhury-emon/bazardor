@@ -4,7 +4,7 @@ import { RiTriangleFill } from "react-icons/ri";
 
 export default function ProductCard({ product }: { product: Product }) {
     return (
-        <Link href={`/product/${product.slug}`}>
+        <Link href={`/product/${product.id}`}>
 
             <article className="bg-surface border border-border p-4 rounded-4xl hover:border-accent">
                 <div className="flex">
@@ -33,7 +33,6 @@ export default function ProductCard({ product }: { product: Product }) {
                         {product.change.dir === 'flat'
                             ? "—"
                             : <RiTriangleFill className={`text-xs mb-1 ${product.change.dir === 'down' ? 'rotate-180' : ''}`} />
-
                         }
                         <span>{Math.abs(product.change.pct).toLocaleString('bn-BD')}%</span>
                     </span>

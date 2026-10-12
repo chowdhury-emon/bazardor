@@ -4,7 +4,7 @@ import { RiTriangleFill } from "react-icons/ri";
 
 export default function MarqueeProduct({ product }: { product: Product }) {
     return (
-        <Link href={`/product/${product.slug}`}>
+        <Link href={`/product/${product.id}`}>
 
             <div className="text-sm flex gap-2 p-2 px-4 border-l border-border">
                 <span>{product.categoryIcon}</span>
@@ -14,9 +14,16 @@ export default function MarqueeProduct({ product }: { product: Product }) {
                     {product.unit}
                 </span>
 
-                <span className={`flex items-center gap-1 ${product.change.dir === 'down' ? 'text-red-700' : 'text-green-700'}`}>
-                    <RiTriangleFill className={`text-xs mb-1 ${product.change.dir === 'down' ? 'rotate-180' : ''}`} />
-                    <span>{product.change.pct.toLocaleString('bn-BD')}%</span>
+                <span className={`flex items-center gap-1 
+                    ${product.change.dir === 'down' ? 'text-green-700'
+                        : product.change.dir === "up" ? 'text-red-700'
+                        : ""}`}>
+
+                    {product.change.dir === 'flat'
+                        ? "—"
+                        : <RiTriangleFill className={`text-xs mb-1 ${product.change.dir === 'down' ? 'rotate-180' : ''}`} />
+                    }
+                    <span>{Math.abs(product.change.pct).toLocaleString('bn-BD')}%</span>
                 </span>
 
             </div>
