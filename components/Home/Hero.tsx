@@ -19,7 +19,7 @@ export default function Hero() {
         </p>
         <h1 className="text-4xl font-extrabold my-6">আজকের বাজারের দাম এক নজরে</h1>
         <p className="my-8 text-muted">চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম — বাজারভিত্তিক বিস্তারিত, গড়, সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।</p>
-        <Button>সব পণ্য দেখুন</Button>
+        <a href="#all-products"><Button>সব পণ্য দেখুন</Button></a>
       </div>
 
       <figure>

@@ -23,7 +23,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-theme="light"
-      className={`${balooDa.className} light h-full antialiased`}
+      className={`${balooDa.className} light h-full antialiased scroll-smooth scroll-pt-50`}
     >
       <body className="min-h-full flex flex-col">
         <header className="sticky top-0 z-50 bg-surface">
