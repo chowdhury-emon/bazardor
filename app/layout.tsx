@@ -3,8 +3,8 @@ import "./globals.css";
 import { Baloo_Da_2 } from "next/font/google";
 import { Suspense } from "react";
 import Header from "@/components/Header/Header";
-import MarqueeLinks from "@/components/MarqueeLinks/MarqueeLinks";
-import Navbar from "@/components/Navbar/Navbar";
+import MarqueeLinks from "@/components/Header/MarqueeLinks/MarqueeLinks";
+import Navbar from "@/components/Header/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import { Spinner, Toast } from "@heroui/react";
 
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </Suspense>
         </header>
 
-        <main className="container mx-auto min-h-screen bg-background p-2">
+        <main className="container mx-auto min-h-screen bg-background p-4">
           {children}
         </main>
 

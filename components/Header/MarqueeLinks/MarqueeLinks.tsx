@@ -1,4 +1,4 @@
-import MarqueeProductLink from "@/components/MarqueeLinks/MarqueeProductLink";
+import MarqueeProductLink from "@/components/Header/MarqueeLinks/MarqueeProductLink";
 import { getProducts } from "@/lib/api";
 import Marquee from "react-fast-marquee";
 

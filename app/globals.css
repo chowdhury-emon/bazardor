@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "@heroui/styles"; 
+@import "@heroui/styles";
 /* 
 :root {
   --background: #ffffff;
@@ -18,6 +18,12 @@
   --color-foreground: var(--foreground);
 
   --font-baloo: var(--font-baloo-da);
+}
+
+@layer {
+  h3 {
+    @apply text-xl font-bold;
+  }
 }
 
 body {

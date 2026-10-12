@@ -1,4 +1,4 @@
-import Navlink from "@/components/Navbar/Navlink";
+import Navlink from "@/components/Header/Navbar/Navlink";
 import { getCategories } from "@/lib/api"
 
 export default async function Navbar() {
