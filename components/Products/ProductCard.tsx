@@ -4,7 +4,7 @@ import { RiTriangleFill } from "react-icons/ri";
 
 export default function ProductCard({ product }: { product: Product }) {
     return (
-        <Link href={'/'}>
+        <Link href={`/product/${product.slug}`}>
 
             <article className="bg-surface border border-border p-4 rounded-4xl hover:border-accent">
                 <div className="flex">

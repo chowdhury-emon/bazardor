@@ -2,7 +2,7 @@ import { Button } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function notFound() {
+export default function NotFound() {
   return (
     <div className="grid place-content-center">
       <p className="text-xs font-black text-muted">( 404 )</p>
