@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 export default function Navlink({ category }: { category: Category }) {
     const activeRoute = usePathname();
-    console.log(activeRoute);
+    // console.log(activeRoute);
     return (
         <>
             <Link href={`/category/${category.slug}`}

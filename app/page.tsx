@@ -1,11 +1,15 @@
 import Hero from "@/components/Home/Hero";
-import ProductsList from "@/components/Products/ProductsList";
+import AllProducts from "@/components/Products/AllProducts";
+import PriceDownProducts from "@/components/Products/PriceDownProducts";
+import PriceUpProducts from "@/components/Products/PriceUpProducts";
 
 export default function Home() {
   return (
     <div>
       <Hero />
-      <ProductsList />
+      <PriceUpProducts />
+      <PriceDownProducts />
+      <AllProducts />
     </div>
   )
 }

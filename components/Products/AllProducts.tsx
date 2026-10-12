@@ -1,7 +1,7 @@
 import ProductCard from "@/components/Products/ProductCard";
 import { getProducts } from "@/lib/api";
 
-export default async function ProductsList() {
+export default async function AllProducts() {
     const products = await getProducts();
     return (
         <section className=" my-12">

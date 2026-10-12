@@ -6,7 +6,7 @@ export default function ProductCard({ product }: { product: Product }) {
     return (
         <Link href={'/'}>
 
-            <article className=" bg-surface border border-border p-4 rounded-4xl hover:border-accent">
+            <article className="bg-surface border border-border p-4 rounded-4xl hover:border-accent">
                 <div className="flex">
                     <figure className="text-2xl w-12 grid place-content-center rounded-2xl bg-background mr-4">
                         {product.image}

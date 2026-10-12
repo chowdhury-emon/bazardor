@@ -24,6 +24,9 @@
   h3 {
     @apply text-xl font-bold;
   }
+  .button--primary {
+    @apply shadow-lg shadow-accent/50;
+  }
 }
 
 body {
