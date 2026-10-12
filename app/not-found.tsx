@@ -1,5 +1,16 @@
+import { Button } from "@heroui/react";
+import Image from "next/image";
+import Link from "next/link";
+
 export default function notFound() {
   return (
-    <div className="text-7xl">not-found</div>
+    <div className="grid place-content-center h-screen">
+      <p className="text-xs font-black">( 404 )</p>
+      <h1 className="text-7xl font-black"> not found </h1>
+      <figure>
+        <Image src={'/bazar-hero.svg'} width={300} height={300} alt="Bazar Image" className="w-auto h-auto object-contain saturate-0"></Image>
+      </figure>
+      <Link href={'/'} className="text-center text-muted animate-bounce">← হোম পেজে ফিরে যান</Link>
+    </div>
   )
 }
