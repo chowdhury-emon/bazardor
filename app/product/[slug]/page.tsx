@@ -7,8 +7,8 @@ export default async function ProductDetails({ params }: { params: Promise<{ slu
     return (
         <div>
             <article className="bg-surface border border-border rounded-4xl p-4 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div className="grid md:flex gap-4 items-center w-full md:w-auto">
-                    <figure className="text-7xl/tight text-center bg-background rounded-2xl p-4">
+                <div className="grid md:flex gap-4 items-center w-full md:w-auto text-center">
+                    <figure className="text-7xl/tight bg-background rounded-2xl p-4">
                         {product.image}
                     </figure>
 
