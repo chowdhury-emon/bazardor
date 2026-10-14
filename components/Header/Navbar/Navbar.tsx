@@ -3,7 +3,7 @@ import { getCategories } from "@/lib/api"
 
 export default async function Navbar() {
    const categories = await getCategories();
-   console.log(categories);
+//    console.log(categories);
     return (
         <div className="border-b border-t border-border">
             <nav className="container mx-auto flex p-2 overflow-x-auto">
