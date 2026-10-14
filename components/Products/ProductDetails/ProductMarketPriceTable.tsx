@@ -3,12 +3,11 @@ import { bengaliNum } from "@/utils/bengaliNum";
 
 export default function ProductMarketPriceTable({ product }: { product: Product }) {
     return (
-        <div className="w-full overflow-auto">
+        <div>
             <h3 className="mt-8 mb-4">বাজারভিত্তিক আজকের দাম</h3>
 
             <div className="w-full overflow-auto grid border rounded-3xl text-nowrap">
-                <div className="w-max">
-
+                <div className="min-w-max">
                     {/* TABLE HEADER */}
                     <div className="grid grid-cols-5 font-semibold text-muted *:p-2 *:px-4">
                         <p>বাজার</p>

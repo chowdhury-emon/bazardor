@@ -13,8 +13,8 @@ export default function Header() {
     }, []);
 
     return (
-        <div className="container mx-auto flex justify-between items-center p-2">
-            <Link href={'/'} className="flex gap-2 zoom-90 sm:zoom-100">
+        <div className="container mx-auto flex justify-between items-center p-2 zoom-90 sm:zoom-100">
+            <Link href={'/'} className="flex gap-2">
                 <Image className="w-12 h-full aspect-square p-2 rounded-3xl bg-accent object-contain"
                     src={'/cart-logo.png'} width={500} height={500} alt="Cart logo"></Image>
                 <div>
