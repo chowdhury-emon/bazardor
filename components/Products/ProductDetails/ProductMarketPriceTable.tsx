@@ -26,7 +26,11 @@ export default function ProductMarketPriceTable({ product }: { product: Product 
                                 <p>{market.division}</p>
                                 <p>{bengaliNum(market.min)} টাকা</p>
                                 <p>{bengaliNum(market.max)} টাকা</p>
-                                <p className="text-end">{bengaliNum((market.max + market.min) / 2)} টাকা</p>
+                                <p className="text-end">
+                                    {
+                                        bengaliNum(((market.max + market.min) / 2))
+                                    } টাকা
+                                </p>
                             </div>
                         ))
                     }

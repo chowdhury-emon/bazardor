@@ -7,7 +7,7 @@ export default async function ProductDetailsPage({ params }: { params: Promise<{
     const { slug } = await params;
     const product = await getProductById(slug);
     return (
-        <section>
+        <section className="overflow-auto">
             <ProductSummary product={product}></ProductSummary>
             <div className="bg-surface border border-border rounded-4xl p-4 my-4">
                 <ProductPriceSummary product={product}></ProductPriceSummary>

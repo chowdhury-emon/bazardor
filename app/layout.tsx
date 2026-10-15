@@ -23,10 +23,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-theme="light"
-      className={`${balooDa.className} light h-full antialiased scroll-smooth scroll-pt-50`}
+      className={`${balooDa.className} h-full antialiased scroll-smooth scroll-pt-50`}
     >
       <body className="min-h-full flex flex-col">
-        <header className="sticky top-0 z-50 bg-surface">
+        <header className="sticky top-0 z-100 bg-surface">
           <Header />
           <Suspense fallback={<div className="container mx-auto"> <Spinner /> </div>}>
             <Navbar />
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </Suspense>
         </header>
 
-        <main className="container mx-auto grid min-h-[80vh] *:overflow-auto p-4 bg-background">
+        <main className="container mx-auto grid min-h-[80vh] *:p-4 bg-background overflow-auto">
           {children}
         </main>
 

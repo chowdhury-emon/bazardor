@@ -10,7 +10,7 @@ export default function ProductSummary({ product }: { product: Product }) {
                 </figure>
 
                 <div>
-                    <h1 className="text-4xl/normal font-bold">
+                    <h1 className="text-3xl/normal font-bold">
                         {product.nameBn}
                     </h1>
                     <p className="capitalize text-muted mb-2">প্রতি {product.unit} . {product.nameBn} </p>
@@ -26,12 +26,12 @@ export default function ProductSummary({ product }: { product: Product }) {
 
             <div className="bg-background rounded-2xl p-4 text-muted text-center w-full md:w-auto">
                 <p>আজকের দাম</p>
-                <p className="text-4xl font-bold text-foreground">{product.today.toLocaleString('bn-BD')}</p>
+                <p className="text-3xl font-bold text-foreground">{product.today.toLocaleString('bn-BD')}</p>
                 <p className="capitalize">টাকা / {product.unit}</p>
                 
                 <span className={`flex items-center justify-center gap-1 
                         ${product.change.dir === 'down' ? 'text-green-700'
-                        : product.change.dir === "up" ? 'text-red-700'
+                        : product.change.dir === 'up' ? 'text-red-700'
                             : ""}`}>
 
                     {product.change.dir === 'flat'

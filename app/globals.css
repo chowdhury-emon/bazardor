@@ -16,7 +16,6 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-
   --font-baloo: var(--font-baloo-da);
 }
 
@@ -24,14 +23,25 @@
   h2 {
     @apply text-2xl font-bold;
   }
+
   h3 {
     @apply text-xl font-bold;
   }
-  .button{
+
+  .button {
     @apply font-bold;
   }
+
   .button--primary {
     @apply shadow-lg shadow-accent/50;
+  }
+
+  .input {
+    @apply shadow-none border border-border bg-background;
+  }
+
+  .label{
+    @apply font-semibold;
   }
 }
 
