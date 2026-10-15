@@ -40,8 +40,8 @@
     @apply shadow-none border border-border bg-background;
   }
 
-  .label{
-    @apply font-semibold;
+  .label {
+    @apply font-semibold text-foreground;
   }
 }
 

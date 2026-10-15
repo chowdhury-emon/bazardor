@@ -1,34 +1,44 @@
 "use client";
 import { signUp } from "@/lib/auth-client";
-import { Button, FieldError, Form, Input, Label, TextField, toast } from "@heroui/react";
+import { Button, FieldError, Form, Input, Label, Spinner, TextField, toast } from "@heroui/react";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function SignUpPage() {
     const [password, setPassword] = useState("");
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const formData = new FormData(e.currentTarget);
-        const userData = Object.fromEntries(formData.entries());
+        setIsLoading(true);
 
-        const { data, error } = await signUp.email({
-            name: userData.name as string,
-            email: userData.email as string,
-            password: userData.password as string,
-            callbackURL: "/",
-        });
+        try {
+            const formData = new FormData(e.currentTarget);
+            const userData = Object.fromEntries(formData.entries());
 
-        if (data) {
-            toast.success("অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে")
-        }
-        else if (error) {
-            if (error.status == 422) {
-                toast.danger("এই ইমেইল দিয়ে ইতোমধ্যে একটি অ্যাকাউন্ট রয়েছে")
-            } else {
-                toast.danger(error.message)
+            const { data, error } = await signUp.email({
+                name: userData.name as string,
+                email: userData.email as string,
+                password: userData.password as string,
+                callbackURL: "/",
+            });
+
+            if (data) {
+                toast.success("অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে")
             }
-            console.error(error)
+            if (error) {
+
+                if (error?.status == 422) {
+                    toast.danger("এই ইমেইল দিয়ে ইতোমধ্যে একটি অ্যাকাউন্ট রয়েছে")
+                } else {
+                    toast.danger(error?.message)
+                }
+            }
+
+        } catch (er) {
+            console.error(er)
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -113,6 +123,7 @@ export default function SignUpPage() {
 
                 <div className="grid gap-2">
                     <Button type="submit" className='w-full'>
+                        {isLoading && <Spinner className="text-white" />}
                         অ্যাকাউন্ট তৈরি করুন
                     </Button>
 
@@ -121,7 +132,7 @@ export default function SignUpPage() {
                         <p className=" text-xs text-muted bg-surface px-4 mx-auto">অথবা</p>
                     </div>
 
-                    <p className="mt-4 text-center">
+                    <p className="mt-4 text-center text-sm">
                         অ্যাকাউন্ট আছে? <Link href={'/sign-in'} className="text-accent"> সাইন ইন করুন</Link>
                     </p>
                 </div>

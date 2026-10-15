@@ -6,7 +6,7 @@ import Header from "@/components/Header/Header";
 import MarqueeLinks from "@/components/Header/MarqueeLinks/MarqueeLinks";
 import Navbar from "@/components/Header/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
-import { Spinner, Toast } from "@heroui/react";
+import { Skeleton, Spinner, Toast } from "@heroui/react";
 
 const balooDa = Baloo_Da_2({
   variable: "--font-baloo-da",
@@ -28,7 +28,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <header className="sticky top-0 z-100 bg-surface">
           <Header />
-          <Suspense fallback={<div className="container mx-auto"> <Spinner /> </div>}>
+          <Suspense fallback={
+            <div className="p-4 grid w-full max-w-xl grid-cols-4 gap-4">
+              <Skeleton className="h-10 rounded-xl" />
+              <Skeleton className="h-10 rounded-xl" />
+              <Skeleton className="h-10 rounded-xl" />
+              <Skeleton className="h-10 rounded-xl" />
+            </div>
+          }>
             <Navbar />
             <MarqueeLinks />
           </Suspense>

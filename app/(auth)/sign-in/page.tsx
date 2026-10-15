@@ -1,31 +1,42 @@
 'use client'
 import { signIn } from "@/lib/auth-client";
-import { Button, FieldError, Form, Input, Label, TextField, toast } from "@heroui/react";
+import { Button, FieldError, Form, Input, Label, Spinner, TextField, toast } from "@heroui/react";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function SignInPage() {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const userData = Object.fromEntries(formData.entries());
+    setIsLoading(true);
+    try {
 
-    const { data, error } = await signIn.email({
-      email: userData.email as string,
-      password: userData.password as string,
-      callbackURL: "/",
-    });
+      const formData = new FormData(e.currentTarget);
+      const userData = Object.fromEntries(formData.entries());
 
-    if (data) {
-      toast.success("সফলভাবে সাইন ইন হয়েছে")
-    }
-    else if (error) {
-      if (error.status == 401) {
-        toast.danger("ইমেইল বা পাসওয়ার্ড ভুল হয়েছে।")
-      } else {
-        toast.danger(error.message)
+      const { data, error } = await signIn.email({
+        email: userData.email as string,
+        password: userData.password as string,
+        callbackURL: "/",
+      });
+
+      if (data) {
+        toast.success("সফলভাবে সাইন ইন হয়েছে")
       }
-      console.error(error)
+      else if (error) {
+        if (error.status == 401) {
+          toast.danger("ইমেইল বা পাসওয়ার্ড ভুল হয়েছে।")
+        } else {
+          toast.danger(error.message)
+        }
+        console.error(error)
+      }
+    } catch (er) {
+      console.log(er)
+    }
+    finally {
+      setIsLoading(false)
     }
   };
 
@@ -45,7 +56,6 @@ export default function SignInPage() {
             if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
               return "দয়া করে একটি সঠিক ইমেইল এড্রেস দিন";
             }
-
             return null;
           }}
         >
@@ -73,6 +83,7 @@ export default function SignInPage() {
 
         <div className="grid gap-2">
           <Button type="submit" className='w-full'>
+            {isLoading && <Spinner className="text-white" />}
             সাইন ইন
           </Button>
 
@@ -81,7 +92,7 @@ export default function SignInPage() {
             <p className=" text-xs text-muted bg-surface px-4 mx-auto">অথবা</p>
           </div>
 
-          <p className="mt-4 text-center">
+          <p className="mt-4 text-center text-sm">
             অ্যাকাউন্ট নেই? <Link href={'/sign-up'} className="text-accent"> সাইন আপ করুন</Link>
           </p>
         </div>

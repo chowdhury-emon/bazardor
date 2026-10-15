@@ -23,8 +23,8 @@ export default function Header() {
         await signOut({
             fetchOptions: {
                 onSuccess: () => {
-                    router.push("/sign-in"); // redirect to login page
-                    toast.success("Log Out successfully")
+                    router.push("/sign-in");
+                    toast.success("সাইন আউট সলফ হয়েছে")
                 },
             },
         });
