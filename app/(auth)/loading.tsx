@@ -1,14 +1,16 @@
 import { Skeleton } from "@heroui/react";
 
 export default function Loading() {
-  return (
-        <div className="shadow-panel w-sm space-y-5 rounded-lg bg-transparent p-4">
-          <Skeleton className="h-32 rounded-lg" />
-          <div className="space-y-3">
-            <Skeleton className="h-3 w-3/5 rounded-lg" />
-            <Skeleton className="h-3 w-4/5 rounded-lg" />
-            <Skeleton className="h-3 w-2/5 rounded-lg" />
-          </div>
+    return (
+        <div className="grid place-content-center">
+            <div className="shadow-panel w-sm space-y-5 rounded-lg bg-transparent p-4">
+                <Skeleton className="h-32 rounded-lg" />
+                <div className="space-y-3">
+                    <Skeleton className="h-3 w-3/5 rounded-lg" />
+                    <Skeleton className="h-3 w-4/5 rounded-lg" />
+                    <Skeleton className="h-3 w-2/5 rounded-lg" />
+                </div>
+            </div>
         </div>
-  )
+    )
 }
