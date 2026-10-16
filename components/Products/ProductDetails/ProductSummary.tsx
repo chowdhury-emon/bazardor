@@ -18,7 +18,7 @@ export default function ProductSummary({ product }: { product: Product }) {
                         {
                             product.change.dir === 'up' ? ` বেড়েছে ${product.today - product.yesterday} টাকা`
                                 : product.change.dir === 'down' ? ` কমেছে ${product.yesterday - product.today} টাকা`
-                                    : "অপরিবর্তিত."
+                                    : " অপরিবর্তিত."
                         }
                     </p>
                 </div>

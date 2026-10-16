@@ -55,7 +55,7 @@ export default function UserProfile() {
                             (
                                 <Image src={session?.user.image} width={500} height={500} alt="User Profile Image" />
                             ) : (
-                                <div>{session?.user.name[0]}</div>
+                                <div className="select-none">{session?.user.name[0]}</div>
                             )
                         }
                     </figure>

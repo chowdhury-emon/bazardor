@@ -49,11 +49,11 @@ export default function Header() {
                                 (
                                     <Image src={session.user.image} width={300} height={300} alt="User Profile Image" />
                                 ) : (
-                                    <div>{session.user.name[0]}</div>
+                                    <div className="select-none">{session.user.name[0]}</div>
                                 )
                             }
                         </figure>
-                        <Button variant="ghost" className="capitalize font-black!"
+                        <Button variant="ghost" className="capitalize font-bold!"
                             onClick={() => { setMenuOpen(!menuOpen) }}
                         >
                             {session.user.name.split(' ')[0]}

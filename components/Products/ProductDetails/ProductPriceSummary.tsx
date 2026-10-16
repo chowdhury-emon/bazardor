@@ -9,7 +9,7 @@ export default function ProductPriceSummary({ product }: { product: Product }) {
   const totalMinMaxSum = product.markets.reduce((sum, market) => sum + ((market.max + market.min) / 2), 0);
   const avgPrice = Math.trunc(totalMinMaxSum / product.markets.length);
 
-  console.log(typeof minPrice, maxPrice.toLocaleString('bn-BD'), avgPrice)
+  // console.log(typeof minPrice, maxPrice.toLocaleString('bn-BD'), avgPrice)
 
   return (
     <div>
@@ -18,13 +18,13 @@ export default function ProductPriceSummary({ product }: { product: Product }) {
       <article className="grid gap-4 md:grid-cols-3 text-muted">
         <div className="rounded-3xl p-4 border border-border">
           <p>সর্বনিম্ন দাম</p>
-          <p className="text-green-700 text-2xl font-bold">{bengaliNum(avgPrice)}  টাকা</p>
+          <p className="text-green-700 text-2xl font-bold">{bengaliNum(minPrice)}  টাকা</p>
           <p>সবচেয়ে কম দামের বাজার</p>
         </div>
 
         <div className="rounded-3xl p-4 border border-border">
           <p>সর্বাধিক দাম</p>
-          <p className="text-red-700 text-2xl font-bold">{bengaliNum(avgPrice)}  টাকা</p>
+          <p className="text-red-700 text-2xl font-bold">{bengaliNum(maxPrice)}  টাকা</p>
           <p>সবচেয়ে বেশি দামের বাজার</p>
         </div>
 
