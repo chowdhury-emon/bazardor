@@ -1,8 +1,10 @@
 "use client";
-import { signUp } from "@/lib/auth-client";
+import { signIn, signInWithGithub, signInWithGoogle, signUp } from "@/lib/auth-client";
 import { Button, FieldError, Form, Input, Label, Spinner, TextField, toast } from "@heroui/react";
 import Link from "next/link";
 import { useState } from "react";
+import { FaGithub } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 export default function SignUpPage() {
     const [password, setPassword] = useState("");
@@ -51,7 +53,7 @@ export default function SignUpPage() {
                     <p className="text-sm text-muted">বিনা খরচে সাইন আপ করে সব বিস্তারিত দাম দেখুন।</p>
                 </div>
 
-                <Form className="flex w-full max-w-sm flex-col gap-4 bg-surface border border-border p-4 rounded-4xl" onSubmit={onSubmit}>
+                <Form className="flex w-full sm:w-fit flex-col gap-4 bg-surface border border-border p-4 rounded-4xl" onSubmit={onSubmit}>
                     <TextField
                         isRequired
                         name="name"
@@ -132,6 +134,17 @@ export default function SignUpPage() {
                         <div className="grid place-items-center *:col-start-1 *:row-start-1 my-4">
                             <hr className="border-t border-border w-full" />
                             <p className=" text-xs text-muted bg-surface px-4 mx-auto">অথবা</p>
+                        </div>
+
+                        <div className="grid sm:flex gap-2 *:w-full">
+                            <Button variant="outline" onClick={signInWithGoogle}>
+                                <FcGoogle />
+                                Google দিয়ে চালিয়ে যান
+                            </Button>
+                            <Button variant="outline" onClick={signInWithGithub}>
+                                <FaGithub />
+                                Github দিয়ে চালিয়ে যান
+                            </Button>
                         </div>
 
                         <p className="mt-4 text-center text-sm">

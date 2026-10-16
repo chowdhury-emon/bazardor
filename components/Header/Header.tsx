@@ -44,7 +44,7 @@ export default function Header() {
             {session?.user
                 ? (
                     <div className="flex items-center gap-1">
-                        <figure className="w-10 h-auto aspect-square rounded-full border-2 border-border bg-background text-2xl text-muted font-black grid place-content-center capitalize">
+                        <figure className="w-10 h-auto aspect-square rounded-full border-2 border-border bg-background text-2xl text-muted font-black grid place-content-center capitalize overflow-hidden">
                             {session.user.image ?
                                 (
                                     <Image src={session.user.image} width={300} height={300} alt="User Profile Image" />
@@ -59,7 +59,9 @@ export default function Header() {
                             {session.user.name.split(' ')[0]}
                             <FaCaretDown />
                         </Button>
-                        <div className={` ${menuOpen ? 'grid' : 'hidden'} absolute right-2 top-15 z-100 w-3xs bg-surface shadow-xl border border-border rounded-4xl p-4`}>
+
+                        {/* HIDDEN MENU POPUP */}
+                        <div className={` ${menuOpen ? 'grid' : 'hidden'} absolute right-2 top-15 z-100 min-w-3xs w-fit bg-surface shadow-xl border border-border rounded-4xl p-4`}>
                             <div className="border-b mb-3 pb-2">
                                 <p className="text-2xl font-bold capitalize">{session.user.name}</p>
                                 <p className="text-sm font-medium text-muted">{session.user.email}</p>

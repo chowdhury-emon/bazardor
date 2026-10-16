@@ -1,8 +1,10 @@
 'use client'
-import { signIn } from "@/lib/auth-client";
+import { signIn, signInWithGithub, signInWithGoogle } from "@/lib/auth-client";
 import { Button, FieldError, Form, Input, Label, Spinner, TextField, toast } from "@heroui/react";
 import Link from "next/link";
 import { useState } from "react";
+import { FaGithub } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 export default function SignInPage() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -24,7 +26,8 @@ export default function SignInPage() {
       if (data) {
         toast.success("সফলভাবে সাইন ইন হয়েছে")
       }
-      else if (error) {
+
+      if (error) {
         if (error.status == 401) {
           toast.danger("ইমেইল বা পাসওয়ার্ড ভুল হয়েছে।")
         } else {
@@ -48,7 +51,7 @@ export default function SignInPage() {
           <p className="text-sm text-muted">বিস্তারিত দাম, বাজার তুলনা ও প্রোফাইল দেখতে অ্যাকাউন্টে ঢুকুন।</p>
         </div>
 
-        <Form className="flex w-full max-w-sm flex-col gap-4 bg-surface border border-border p-4 rounded-4xl" onSubmit={onSubmit}>
+        <Form className="flex w-full sm:w-fit flex-col gap-4 bg-surface border border-border p-4 rounded-4xl" onSubmit={onSubmit}>
           <TextField
             isRequired
             name="email"
@@ -91,6 +94,17 @@ export default function SignInPage() {
             <div className="grid place-items-center *:col-start-1 *:row-start-1 my-4">
               <hr className="border-t border-border w-full" />
               <p className=" text-xs text-muted bg-surface px-4 mx-auto">অথবা</p>
+            </div>
+
+            <div className="grid sm:flex gap-2 *:w-full">
+              <Button variant="outline" onClick={signInWithGoogle}>
+                <FcGoogle />
+                Google দিয়ে চালিয়ে যান
+              </Button>
+              <Button variant="outline" onClick={signInWithGithub}>
+                <FaGithub />
+                Github দিয়ে চালিয়ে যান
+              </Button>
             </div>
 
             <p className="mt-4 text-center text-sm">
