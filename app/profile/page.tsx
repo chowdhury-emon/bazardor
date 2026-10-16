@@ -65,7 +65,7 @@ export default function UserProfile() {
                         <p className="text-base font-medium text-muted">{session?.user.email}</p>
                     </div>
                 </div>
-                <div className="grid gap-2 place-items-end h-fit text-xs">
+                <div className="grid gap-2 place-items-end h-fit">
                     <Button variant="outline" className="text-base justify-start text-red-700 border-current"
                         onClick={() => handleSignOut()}
                     >
