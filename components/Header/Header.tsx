@@ -24,7 +24,7 @@ export default function Header() {
             fetchOptions: {
                 onSuccess: () => {
                     router.push("/sign-in");
-                    toast.success("সাইন আউট সলফ হয়েছে")
+                    toast.success("সাইন আউট সলফ হয়েছে");
                 },
             },
         });
