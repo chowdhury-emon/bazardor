@@ -48,7 +48,7 @@ export default function UserProfile() {
                 <p className="text-muted">আপনার অ্যাকাউন্টের তথ্য এখানে দেখুন।</p>
             </div>
 
-            <div className="flex justify-between gap-4 bg-surface border border-border rounded-4xl p-4 my-4">
+            <div className="relative flex gap-4 bg-surface border border-border rounded-4xl p-4 my-4 wrap-anywhere">
                 <div className="grid md:flex items-center gap-4">
                     <figure className="w-20 h-auto aspect-square rounded-3xl border-2 border-border bg-background text-6xl text-muted font-black grid place-content-center capitalize overflow-hidden">
                         {session?.user.image ?
@@ -65,7 +65,7 @@ export default function UserProfile() {
                         <p className="text-base font-medium text-muted">{session?.user.email}</p>
                     </div>
                 </div>
-                <div className="grid gap-2 place-items-end h-fit">
+                <div className="absolute right-4 grid gap-2 h-fit *:w-full *:text-xs *:md:text-base">
                     <Button variant="outline" className="text-base justify-start text-red-700 border-current"
                         onClick={() => handleSignOut()}
                     >

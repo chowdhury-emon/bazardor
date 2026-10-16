@@ -53,7 +53,7 @@ export default function Header() {
                                 )
                             }
                         </figure>
-                        <Button variant="ghost" className="capitalize"
+                        <Button variant="ghost" className="capitalize font-black!"
                             onClick={() => { setMenuOpen(!menuOpen) }}
                         >
                             {session.user.name.split(' ')[0]}

@@ -29,7 +29,7 @@
   }
 
   .button {
-    @apply font-bold;
+    @apply font-semibold;
   }
 
   .button--primary {
