@@ -1,9 +1,11 @@
 import SortedProducts from "@/components/Products/SortedProducts";
 import { getCategoryById, getProductsByCatagory } from "@/lib/api";
+import { notFound } from "next/navigation";
 
 export default async function page({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const category = await getCategoryById(slug);
+    if (!category) { notFound() };
     const products = await getProductsByCatagory(slug);
 
     return (
