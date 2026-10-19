@@ -23,7 +23,7 @@ export default function Hero() {
       </div>
 
       <figure>
-        <Image src={'/bazar-hero.svg'} width={400} height={400} alt="Bazar Image" loading="eager" className="w-auto h-auto object-contain"></Image>
+        <Image src={'/bazar-hero.svg'} width={400} height={400} alt="Bazar Image" className="w-auto h-auto object-contain"></Image>
       </figure>
 
     </section>
